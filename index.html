@@ -1,0 +1,1461 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الأستاذ مثنى الأسدي | مدرس مادة الكيمياء</title>
+    
+    <!-- Google Fonts: Cairo, Tajawal, Reem Kufi & Amiri -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@700&family=Cairo:wght@300;400;600;700;800;900&family=Reem+Kufi:wght@600;700&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        cairo: ['Cairo', 'sans-serif'],
+                        tajawal: ['Tajawal', 'sans-serif'],
+                        kufi: ['Reem Kufi', 'sans-serif'],
+                        amiri: ['Amiri', 'serif'],
+                    },
+                    colors: {
+                        chemDark: '#060d1f',
+                        chemCard: '#0d1627',
+                        chemEmerald: '#10b981',
+                        chemGold: '#f59e0b',
+                        chemCyan: '#06b6d4',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Styles & Animations */
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: #060d1f;
+            color: #f8fafc;
+            overflow-x: hidden;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+
+        /* Protect Images from dragging & right-click saving */
+        img.protected-img {
+            -webkit-user-drag: none;
+            user-drag: none;
+            -webkit-touch-callout: none;
+            pointer-events: auto;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #060b16;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, #10b981, #f59e0b);
+            border-radius: 9999px;
+        }
+
+        /* Intro Splash Screen Animations */
+        #intro-screen {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            background: radial-gradient(circle at center, #0f1f38 0%, #050912 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.9s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.9s ease;
+        }
+
+        #intro-screen.fade-out {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        /* Blinking Cursor for Typewriter Intro */
+        .typing-cursor {
+            display: inline-block;
+            width: 4px;
+            height: 1.1em;
+            background-color: #f59e0b;
+            margin-right: 6px;
+            vertical-align: middle;
+            animation: blinkCursor 0.75s infinite;
+        }
+
+        @keyframes blinkCursor {
+            0%, 49% { opacity: 1; }
+            50%, 100% { opacity: 0; }
+        }
+
+        /* Liquid bubbling animation in Flask */
+        @keyframes bubbleRise {
+            0% { transform: translateY(0) scale(0.8); opacity: 0; }
+            50% { opacity: 0.9; }
+            100% { transform: translateY(-35px) scale(1.2); opacity: 0; }
+        }
+
+        .flask-bubble-1 { animation: bubbleRise 2.2s infinite ease-in; }
+        .flask-bubble-2 { animation: bubbleRise 2.8s infinite ease-in 0.7s; }
+        .flask-bubble-3 { animation: bubbleRise 2.0s infinite ease-in 1.3s; }
+
+        /* Orbital Rings around Profile Picture */
+        @keyframes spinSlow {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        @keyframes spinReverse {
+            from { transform: rotate(360deg); }
+            to { transform: rotate(0deg); }
+        }
+
+        .orbit-ring-1 {
+            animation: spinSlow 18s linear infinite;
+        }
+        .orbit-ring-2 {
+            animation: spinReverse 25s linear infinite;
+        }
+
+        /* Floating Animation */
+        @keyframes floatY {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-12px); }
+        }
+        .animate-float {
+            animation: floatY 4.5s ease-in-out infinite;
+        }
+        .animate-float-delayed {
+            animation: floatY 5.5s ease-in-out infinite 1.5s;
+        }
+
+        /* Glassmorphism Card */
+        .glass-card {
+            background: rgba(13, 22, 39, 0.75);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 10px 35px -5px rgba(0, 0, 0, 0.5);
+        }
+
+        .glass-card:hover {
+            border-color: rgba(16, 185, 129, 0.35);
+            box-shadow: 0 18px 45px -8px rgba(16, 185, 129, 0.15);
+        }
+
+        /* Gold & Emerald Gradient Text */
+        .text-gradient-gold {
+            background: linear-gradient(135deg, #fde68a 0%, #f59e0b 50%, #d97706 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .text-gradient-chem {
+            background: linear-gradient(135deg, #34d399 0%, #10b981 50%, #06b6d4 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Scroll Reveal Utility */
+        .reveal {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Podium Shine Effect */
+        .podium-gold {
+            background: linear-gradient(160deg, rgba(245, 158, 11, 0.24) 0%, rgba(13, 22, 39, 0.92) 100%);
+            border: 1px solid rgba(245, 158, 11, 0.55);
+        }
+        .podium-silver {
+            background: linear-gradient(160deg, rgba(203, 213, 225, 0.18) 0%, rgba(13, 22, 39, 0.92) 100%);
+            border: 1px solid rgba(203, 213, 225, 0.4);
+        }
+        .podium-bronze {
+            background: linear-gradient(160deg, rgba(217, 119, 6, 0.18) 0%, rgba(13, 22, 39, 0.92) 100%);
+            border: 1px solid rgba(217, 119, 6, 0.4);
+        }
+    </style>
+</head>
+<body class="selection:bg-emerald-500 selection:text-white">
+
+    <!-- =========================================================
+         1. ANIMATED INTRO (SPLASH SCREEN WITH TYPEWRITER EFFECT)
+         ========================================================= -->
+    <div id="intro-screen">
+        <!-- Ambient Chemical Hexagon Pattern -->
+        <div class="absolute inset-0 overflow-hidden pointer-events-none opacity-25">
+            <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <pattern id="hexGrid" width="80" height="92" patternUnits="userSpaceOnUse">
+                        <path d="M40 0 L80 23 L80 69 L40 92 L0 69 L0 23 Z" fill="none" stroke="#10b981" stroke-width="0.6" stroke-opacity="0.4"/>
+                    </pattern>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#hexGrid)" />
+            </svg>
+        </div>
+
+        <!-- Glowing Erlenmeyer Flask SVG -->
+        <div class="relative mb-6 z-10">
+            <div class="absolute -inset-4 bg-emerald-500/20 rounded-full blur-2xl animate-pulse"></div>
+            <svg class="w-24 h-24 md:w-28 md:h-28 relative z-10 drop-shadow-[0_0_20px_rgba(16,185,129,0.5)]" viewBox="0 0 120 120" fill="none">
+                <path d="M46 16H74M50 16V42L24 92C21.5 96.8 25 102.5 30.4 102.5H89.6C95 102.5 98.5 96.8 96 92L70 42V16" stroke="#f59e0b" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M33 78L27 91C25.5 94 27.7 97.5 31 97.5H89C92.3 97.5 94.5 94 93 91L87 78H33Z" fill="url(#chemLiquid)"/>
+                <circle cx="52" cy="85" r="3" fill="#fde68a" class="flask-bubble-1"/>
+                <circle cx="66" cy="88" r="2.5" fill="#6ee7b7" class="flask-bubble-2"/>
+                <circle cx="59" cy="82" r="2" fill="#ffffff" class="flask-bubble-3"/>
+                <ellipse cx="60" cy="62" rx="48" ry="16" transform="rotate(-25 60 62)" stroke="#10b981" stroke-width="1.5" stroke-dasharray="6 4"/>
+                <defs>
+                    <linearGradient id="chemLiquid" x1="25" y1="78" x2="95" y2="98" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#10b981"/>
+                        <stop offset="1" stop-color="#06b6d4"/>
+                    </linearGradient>
+                </defs>
+            </svg>
+        </div>
+
+        <!-- Animated Name Writing Container -->
+        <div class="text-center px-6 z-10 max-w-3xl">
+            <p class="text-emerald-400 text-sm md:text-base font-bold tracking-widest mb-3 opacity-90">
+                <i class="fa-solid fa-atom fa-spin ml-2 text-amber-400"></i>
+                الموقع الرسمي للأستاذ
+            </p>
+            
+            <!-- Animated Typewriter Name -->
+            <h1 class="text-3xl sm:text-5xl md:text-6xl font-black text-white min-h-[1.4em] flex items-center justify-center">
+                <span id="intro-typed-name" class="text-gradient-gold drop-shadow-lg"></span>
+                <span class="typing-cursor" id="intro-cursor"></span>
+            </h1>
+
+            <!-- Subtitle Fade In -->
+            <p id="intro-subtitle" class="text-slate-300 text-base md:text-xl font-bold mt-3 opacity-0 transition-all duration-700 transform translate-y-3">
+                مدرس مادة الكيمياء • للمرحلة الإعدادية
+            </p>
+
+            <!-- Chemical Progress Bar -->
+            <div class="w-64 sm:w-80 h-1.5 bg-slate-800 rounded-full mx-auto mt-8 overflow-hidden border border-slate-700/60">
+                <div id="intro-progress" class="h-full bg-gradient-to-l from-amber-400 via-emerald-400 to-cyan-400 w-0 transition-all duration-300 rounded-full"></div>
+            </div>
+        </div>
+
+        <!-- Optional Skip Intro Button -->
+        <button onclick="dismissIntro()" class="mt-10 z-10 px-5 py-2 rounded-full bg-white/5 hover:bg-white/15 border border-white/15 text-slate-300 hover:text-white text-xs sm:text-sm transition-all flex items-center gap-2 cursor-pointer">
+            <span>دخول مباشر للموقع</span>
+            <i class="fa-solid fa-arrow-left"></i>
+        </button>
+    </div>
+
+    <!-- =========================================================
+         BACKGROUND INTERACTIVE CHEMISTRY PARTICLE CANVAS
+         ========================================================= -->
+    <canvas id="chem-canvas" class="fixed inset-0 pointer-events-none z-0 opacity-45"></canvas>
+
+    <!-- =========================================================
+         NAVIGATION BAR (READ-ONLY OFFICIAL HEADER)
+         ========================================================= -->
+    <header class="fixed top-0 inset-x-0 z-50 transition-all duration-300 bg-[#060b16]/90 backdrop-blur-lg border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16 md:h-20">
+                <!-- Logo / Brand with Profile Picture (image_4beee9.jpg) -->
+                <a href="#home" class="flex items-center gap-3 group">
+                    <div class="w-10 h-10 md:w-11 md:h-11 rounded-full bg-gradient-to-br from-amber-400 to-cyan-500 p-[2px] shadow-lg shadow-amber-500/20 group-hover:scale-105 transition-transform overflow-hidden">
+                        <img src="image_4beee9.jpg" 
+                             data-alt-src="image_47f773.jpg"
+                             data-fallback="https://placehold.co/200x200/0f172a/f59e0b?text=مثنى+الأسدي"
+                             alt="الأستاذ مثنى الأسدي" 
+                             class="protected-img w-full h-full object-cover object-top rounded-full bg-[#060d1f]" 
+                             draggable="false"
+                             onerror="smartImageFallback(this)">
+                    </div>
+                    <div>
+                        <span class="block font-extrabold text-base md:text-lg text-white leading-tight">الأستاذ مثنى الأسدي</span>
+                        <span class="block text-[11px] md:text-xs text-amber-400 font-semibold">مدرس مادة الكيمياء</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation Links -->
+                <nav class="hidden md:flex items-center gap-7 text-sm font-bold text-slate-300">
+                    <a href="#home" class="hover:text-emerald-400 transition-colors">الرئيسية</a>
+                    <a href="#about" class="hover:text-emerald-400 transition-colors">المنهجية العلمية</a>
+                    <a href="#institutions" class="hover:text-emerald-400 transition-colors">أماكن التدريس</a>
+                    <a href="#gallery" class="hover:text-emerald-400 transition-colors">معرض الصور</a>
+                    <a href="#honor-roll" class="hover:text-amber-400 transition-colors flex items-center gap-1.5">
+                        <i class="fa-solid fa-crown text-amber-400"></i>
+                        <span>لائحة المتميزين</span>
+                    </a>
+                    <a href="#contact" class="hover:text-emerald-400 transition-colors">التواصل</a>
+                </nav>
+
+                <!-- CTA Instagram & Mobile Menu Button -->
+                <div class="flex items-center gap-2.5">
+                    <a href="https://instagram.com/_muthana93" target="_blank" rel="noopener noreferrer" 
+                       class="inline-flex items-center gap-2 px-3.5 sm:px-4 py-2 rounded-xl bg-gradient-to-r from-pink-600 via-purple-600 to-amber-500 text-white text-xs md:text-sm font-bold shadow-lg shadow-pink-500/20 hover:opacity-95 hover:scale-105 transition-all">
+                        <i class="fa-brands fa-instagram text-base"></i>
+                        <span dir="ltr">@_muthana93</span>
+                    </a>
+
+                    <button id="mobile-menu-btn" aria-label="القائمة" class="md:hidden p-2.5 rounded-xl bg-white/5 border border-white/10 text-slate-200 hover:text-emerald-400 cursor-pointer">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Dropdown Navigation -->
+        <div id="mobile-menu" class="hidden md:hidden bg-[#0a1222] border-b border-white/10 px-4 pt-3 pb-5 space-y-2">
+            <a href="#home" class="block px-4 py-2.5 rounded-xl hover:bg-white/5 text-slate-200 font-bold">الرئيسية</a>
+            <a href="#about" class="block px-4 py-2.5 rounded-xl hover:bg-white/5 text-slate-200 font-bold">المنهجية العلمية</a>
+            <a href="#institutions" class="block px-4 py-2.5 rounded-xl hover:bg-white/5 text-slate-200 font-bold">أماكن التدريس</a>
+            <a href="#gallery" class="block px-4 py-2.5 rounded-xl hover:bg-white/5 text-slate-200 font-bold">معرض البوسترات والصور</a>
+            <a href="#honor-roll" class="block px-4 py-2.5 rounded-xl bg-amber-500/10 text-amber-400 font-bold">
+                <i class="fa-solid fa-trophy ml-2"></i> لائحة المتميزين (2024/2025)
+            </a>
+            <a href="#contact" class="block px-4 py-2.5 rounded-xl hover:bg-white/5 text-slate-200 font-bold">التواصل المباشر</a>
+        </div>
+    </header>
+
+    <!-- =========================================================
+         2. HERO & PROFILE SECTION
+         ========================================================= -->
+    <main class="relative z-10 pt-24 md:pt-32">
+        <section id="home" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 md:pb-24">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+                
+                <!-- Right Text Content (7 Columns) -->
+                <div class="lg:col-span-7 text-center lg:text-right order-2 lg:order-1">
+                    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs sm:text-sm font-bold mb-5">
+                        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+                        <span>التسجيل مفتوح للعام الدراسي 2026 - 2027</span>
+                    </div>
+
+                    <h1 class="text-4xl sm:text-5xl md:text-6xl font-black text-white leading-tight mb-4">
+                        الأستاذ <span class="text-gradient-gold">مثنى الأسدي</span>
+                    </h1>
+
+                    <h2 class="text-xl sm:text-2xl md:text-3xl font-bold text-gradient-chem mb-6">
+                        مدرس مادة الكيمياء للمرحلة الإعدادية
+                    </h2>
+
+                    <p class="text-slate-300 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto lg:mx-0 mb-8">
+                        "الكيمياء ليست مجرد مادة دراسية، بل طريقة لفهم العالم من حولنا."<br>
+                        نأخذ بيد الطالب من أساسيات المعادلات والمسائل الكيميائية وصولاً إلى الإتقان الكامل للامتحان الوزاري، بأسلوب مبسّط وأفكار مركّزة ومتابعة دقيقة تضمن أعلى الدرجات.
+                    </p>
+
+                    <!-- Action Buttons: Honor Roll, Instagram, Contact -->
+                    <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 mb-10">
+                        <a href="#honor-roll" class="px-6 py-3.5 rounded-2xl bg-gradient-to-l from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-extrabold text-sm sm:text-base shadow-xl shadow-amber-500/25 transition-all hover:-translate-y-1 flex items-center gap-2.5">
+                            <i class="fa-solid fa-award text-lg"></i>
+                            <span>استعراض لائحة المتميزين</span>
+                        </a>
+
+                        <a href="https://instagram.com/_muthana93" target="_blank" rel="noopener noreferrer" class="px-6 py-3.5 rounded-2xl glass-card hover:bg-white/10 text-white font-bold text-sm sm:text-base transition-all hover:-translate-y-1 flex items-center gap-2.5 border border-pink-500/30">
+                            <i class="fa-brands fa-instagram text-xl text-pink-500"></i>
+                            <span dir="ltr">@_muthana93</span>
+                        </a>
+
+                        <a href="#contact" class="px-6 py-3.5 rounded-2xl glass-card hover:bg-white/10 text-emerald-400 font-bold text-sm sm:text-base transition-all hover:-translate-y-1 flex items-center gap-2.5 border border-emerald-500/30">
+                            <i class="fa-solid fa-phone-volume text-lg"></i>
+                            <span>التواصل المباشر</span>
+                        </a>
+                    </div>
+
+                    <!-- Quick Key Highlights -->
+                    <div class="grid grid-cols-3 gap-3 sm:gap-5 max-w-xl mx-auto lg:mx-0">
+                        <div class="glass-card rounded-2xl p-3.5 sm:p-4 text-center">
+                            <div class="text-2xl sm:text-3xl font-black text-amber-400">+72</div>
+                            <div class="text-xs sm:text-sm text-slate-400 font-semibold mt-1">طالب متميز بلوحة الشرف</div>
+                        </div>
+                        <div class="glass-card rounded-2xl p-3.5 sm:p-4 text-center">
+                            <div class="text-2xl sm:text-3xl font-black text-emerald-400">100%</div>
+                            <div class="text-xs sm:text-sm text-slate-400 font-semibold mt-1">إعداد شامل للوزاري</div>
+                        </div>
+                        <div class="glass-card rounded-2xl p-3.5 sm:p-4 text-center">
+                            <div class="text-2xl sm:text-3xl font-black text-cyan-400">3</div>
+                            <div class="text-xs sm:text-sm text-slate-400 font-semibold mt-1">مؤسسات تعليمية رائدة</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Left Profile Portrait Showcase (5 Columns) -->
+                <div class="lg:col-span-5 flex justify-center order-1 lg:order-2">
+                    <div class="relative w-72 h-72 sm:w-80 sm:h-80 md:w-96 md:h-96 flex items-center justify-center">
+                        <!-- Ambient Glow -->
+                        <div class="absolute inset-4 rounded-full bg-gradient-to-tr from-emerald-500/30 via-amber-500/20 to-cyan-500/30 blur-2xl"></div>
+                        
+                        <!-- Rotating Orbital Ring 1 -->
+                        <div class="absolute inset-0 rounded-full border-2 border-dashed border-emerald-500/40 orbit-ring-1"></div>
+                        
+                        <!-- Rotating Orbital Ring 2 -->
+                        <div class="absolute inset-3 rounded-full border border-amber-400/40 orbit-ring-2"></div>
+
+                        <!-- Profile Image Frame (image_4beee9.jpg / image_47f773.jpg) -->
+                        <div class="relative w-60 h-60 sm:w-68 sm:h-68 md:w-80 md:h-80 rounded-full p-2 bg-gradient-to-br from-amber-400 via-emerald-500 to-cyan-500 shadow-2xl group">
+                            <div class="w-full h-full rounded-full overflow-hidden bg-slate-900 relative">
+                                <img id="hero-profile-img"
+                                     src="image_4beee9.jpg" 
+                                     data-alt-src="image_47f773.jpg"
+                                     data-fallback="https://placehold.co/600x600/0f172a/f59e0b?text=الأستاذ+مثنى+الأسدي"
+                                     alt="الأستاذ مثنى الأسدي - مدرس الكيمياء" 
+                                     class="protected-img w-full h-full object-cover object-top scale-105 group-hover:scale-110 transition-transform duration-700 cursor-pointer"
+                                     draggable="false"
+                                     onclick="openLightbox(this.src, 'الأستاذ مثنى الأسدي — مدرس مادة الكيمياء')"
+                                     onerror="smartImageFallback(this)">
+                            </div>
+                        </div>
+
+                        <!-- Floating Chemical Badge 1 -->
+                        <div class="animate-float absolute -top-2 right-2 sm:right-4 glass-card px-3.5 py-2 rounded-2xl border border-emerald-500/40 flex items-center gap-2 shadow-xl">
+                            <div class="w-8 h-8 rounded-lg bg-emerald-500/20 flex items-center justify-center text-emerald-400 font-black text-xs">
+                                C₆H₆
+                            </div>
+                            <div class="text-right">
+                                <span class="block text-[11px] text-slate-400">تخصص</span>
+                                <span class="block text-xs font-extrabold text-white">الكيمياء للسادس العلمي</span>
+                            </div>
+                        </div>
+
+                        <!-- Floating Chemical Badge 2 -->
+                        <div class="animate-float-delayed absolute -bottom-2 left-0 sm:left-2 glass-card px-3.5 py-2 rounded-2xl border border-amber-500/40 flex items-center gap-2 shadow-xl">
+                            <div class="w-8 h-8 rounded-lg bg-amber-500/20 flex items-center justify-center text-amber-400">
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                            <div class="text-right">
+                                <span class="block text-[11px] text-slate-400">الناصرية - ذي قار</span>
+                                <span class="block text-xs font-extrabold text-amber-400">نخبة الكادر التدريسي</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- =========================================================
+             3. TEACHING METHODOLOGY & FEATURES (منهجية التدريس)
+             ========================================================= -->
+        <section id="about" class="py-16 md:py-20 bg-[#080f1e]/80 border-y border-white/5">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-14 reveal">
+                    <span class="text-emerald-400 font-bold text-sm tracking-wider uppercase">لماذا يختار الطلبة الأستاذ مثنى الأسدي؟</span>
+                    <h2 class="text-3xl sm:text-4xl font-black text-white mt-2 mb-4">منهجية علمية تصنع التفوق</h2>
+                    <p class="text-slate-400 text-sm sm:text-base">
+                        نظام تدريسي متكامل يجمع بين الفهم العميق للقوانين الكيميائية والتدريب المكثف على الأنماط الوزارية.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Feature 1 -->
+                    <div class="glass-card rounded-3xl p-6 reveal transition-all hover:-translate-y-2">
+                        <div class="w-14 h-14 rounded-2xl bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center text-emerald-400 text-2xl mb-5">
+                            <i class="fa-solid fa-book-open-reader"></i>
+                        </div>
+                        <h3 class="text-lg font-extrabold text-white mb-2">شرح مبسّط وأفكار مركّزة</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                            تبسيط أعقد المسائل الحسابية والفصول الكيميائية بأسلوب سلس يرسّخ المعلومة في ذهن الطالب دون تعقيد.
+                        </p>
+                    </div>
+
+                    <!-- Feature 2 -->
+                    <div class="glass-card rounded-3xl p-6 reveal transition-all hover:-translate-y-2">
+                        <div class="w-14 h-14 rounded-2xl bg-amber-500/15 border border-amber-500/30 flex items-center justify-center text-amber-400 text-2xl mb-5">
+                            <i class="fa-solid fa-clipboard-check"></i>
+                        </div>
+                        <h3 class="text-lg font-extrabold text-white mb-2">اختبارات دورية وتقييم مستمر</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                            امتحانات يومية وأسبوعية وشهرية تحاكي الأجواء الوزارية لكشف نقاط الضعف ومعالجتها أولاً بأول.
+                        </p>
+                    </div>
+
+                    <!-- Feature 3 -->
+                    <div class="glass-card rounded-3xl p-6 reveal transition-all hover:-translate-y-2">
+                        <div class="w-14 h-14 rounded-2xl bg-cyan-500/15 border border-cyan-500/30 flex items-center justify-center text-cyan-400 text-2xl mb-5">
+                            <i class="fa-solid fa-bullseye"></i>
+                        </div>
+                        <h3 class="text-lg font-extrabold text-white mb-2">متابعة دقيقة لكل طالب</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                            اهتمام فردي بمستوى كل طالب وتواصل مستمر لضمان الالتزام الكامل بالواجبات والمحاضرات.
+                        </p>
+                    </div>
+
+                    <!-- Feature 4 -->
+                    <div class="glass-card rounded-3xl p-6 reveal transition-all hover:-translate-y-2">
+                        <div class="w-14 h-14 rounded-2xl bg-purple-500/15 border border-purple-500/30 flex items-center justify-center text-purple-400 text-2xl mb-5">
+                            <i class="fa-solid fa-graduation-cap"></i>
+                        </div>
+                        <h3 class="text-lg font-extrabold text-white mb-2">إعداد كامل للامتحان الوزاري</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                            حل جميع الوزاريات والأسئلة الإثرائية المنهجية لضمان دخول الطالب إلى قاعة الامتحان بثقة تامة.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================================================
+             4. TEACHING INSTITUTIONS & POSTER GALLERY (أماكن التدريس ومعرض الصور)
+             ========================================================= -->
+        <section id="institutions" class="py-16 md:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-14 reveal">
+                <span class="text-amber-400 font-bold text-sm tracking-wider">المؤسسات التربوية والأهلية</span>
+                <h2 class="text-3xl sm:text-4xl font-black text-white mt-2 mb-4">أماكن التدريس والتواجد</h2>
+                <p class="text-slate-400 text-sm sm:text-base">
+                    يتواجد الأستاذ مثنى الأسدي لتدريس مادة الكيمياء في نخبة من أبرز المدارس والمعاهد الأهلية في مدينة الناصرية.
+                </p>
+            </div>
+
+            <!-- 3 Main Institutions Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-7 mb-16">
+                <!-- Institution 1: إعدادية الناصرية للبنين -->
+                <div class="glass-card rounded-3xl p-7 relative overflow-hidden group reveal">
+                    <div class="absolute top-0 left-0 w-24 h-24 bg-emerald-500/10 rounded-br-full transition-transform group-hover:scale-125"></div>
+                    <div class="flex items-center justify-between mb-6">
+                        <span class="px-3 py-1 rounded-full bg-emerald-500/15 text-emerald-400 text-xs font-bold border border-emerald-500/30">
+                            التعليم الحكومي الرصين
+                        </span>
+                        <div class="w-12 h-12 rounded-2xl bg-emerald-500/20 flex items-center justify-center text-emerald-400 text-xl">
+                            <i class="fa-solid fa-school"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-xl sm:text-2xl font-black text-white mb-3">إعدادية الناصرية للبنين</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-5">
+                        مدرس مادة الكيمياء في <strong class="text-emerald-300">إعدادية الناصرية للبنين</strong>، وصاحب نتائج متميزة ولوحة شرف حافلة بالأوائل والمعدلات العالية.
+                    </p>
+                    <div class="pt-4 border-t border-white/10 flex items-center justify-between text-xs text-slate-300 font-bold">
+                        <span><i class="fa-solid fa-location-dot text-emerald-400 ml-1"></i> الناصرية - ذي قار</span>
+                        <span class="text-emerald-400">مدرس المادة</span>
+                    </div>
+                </div>
+
+                <!-- Institution 2: معهد وثانوية إبداع الأهلية -->
+                <div class="glass-card rounded-3xl p-7 relative overflow-hidden group reveal border-amber-500/30">
+                    <div class="absolute top-0 left-0 w-24 h-24 bg-amber-500/10 rounded-br-full transition-transform group-hover:scale-125"></div>
+                    <div class="flex items-center justify-between mb-6">
+                        <span class="px-3 py-1 rounded-full bg-amber-500/15 text-amber-400 text-xs font-bold border border-amber-500/30">
+                            معهد وثانوية أهلية
+                        </span>
+                        <div class="w-12 h-12 rounded-2xl bg-amber-500/20 flex items-center justify-center text-amber-400 text-xl">
+                            <i class="fa-solid fa-building-columns"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-xl sm:text-2xl font-black text-white mb-3">معهد وثانوية إبداع الأهلية</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-5">
+                        تدريس منهج الكيمياء في <strong class="text-amber-300">معهد إبداع</strong> و<strong class="text-amber-300">ثانوية إبداع الأهلية للبنين</strong> بأسلوب مبسط وأفكار مركزة وإعداد كامل للامتحان الوزاري.
+                    </p>
+                    <div class="pt-4 border-t border-white/10 flex items-center justify-between text-xs text-slate-300 font-bold">
+                        <span><i class="fa-solid fa-calendar-check text-amber-400 ml-1"></i> العام الدراسي 2026 - 2027</span>
+                        <span class="text-amber-400">التسجيل متاح</span>
+                    </div>
+                </div>
+
+                <!-- Institution 3: معهد النورين الأهلي -->
+                <div class="glass-card rounded-3xl p-7 relative overflow-hidden group reveal">
+                    <div class="absolute top-0 left-0 w-24 h-24 bg-cyan-500/10 rounded-br-full transition-transform group-hover:scale-125"></div>
+                    <div class="flex items-center justify-between mb-6">
+                        <span class="px-3 py-1 rounded-full bg-cyan-500/15 text-cyan-400 text-xs font-bold border border-cyan-500/30">
+                            معاهد التقوية والخصوصي
+                        </span>
+                        <div class="w-12 h-12 rounded-2xl bg-cyan-500/20 flex items-center justify-center text-cyan-400 text-xl">
+                            <i class="fa-solid fa-atom"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-xl sm:text-2xl font-black text-white mb-3">معهد النورين الأهلي</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-5">
+                        محاضرات حضورية واختبارات دورية ومتابعة دقيقة لطلبة السادس العلمي في <strong class="text-cyan-300">معهد النورين الأهلي</strong> مع ملازم حديثة شاملة.
+                    </p>
+                    <div class="pt-4 border-t border-white/10 flex items-center justify-between text-xs text-slate-300 font-bold">
+                        <span><i class="fa-solid fa-users text-cyan-400 ml-1"></i> مجاميع البنين والبنات</span>
+                        <span class="text-cyan-400">حجز المقاعد</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Official Posters & Photos Gallery (Protected Read-Only Display) -->
+            <div id="gallery" class="pt-4 reveal">
+                <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-8 gap-3">
+                    <div>
+                        <span class="text-emerald-400 font-bold text-xs sm:text-sm">البوسترات التعريفية الرسمية</span>
+                        <h3 class="text-2xl sm:text-3xl font-black text-white mt-1">معرض الصور والإعلانات الرسمية</h3>
+                    </div>
+                    <span class="text-xs text-slate-400 flex items-center gap-1.5">
+                        <i class="fa-solid fa-magnifying-glass-plus text-amber-400"></i>
+                        <span>انقر على أي بوستر لعرضه بالحجم الكامل</span>
+                    </span>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Poster 1: image_076771.jpg / image_4196bc.jpg -->
+                    <div class="glass-card rounded-3xl overflow-hidden group border border-white/10 shadow-2xl">
+                        <div class="relative h-80 sm:h-[26rem] overflow-hidden bg-slate-900">
+                            <img id="poster1-img"
+                                 src="image_076771.jpg" 
+                                 data-alt-src="image_4196bc.jpg"
+                                 data-fallback="https://placehold.co/800x600/0f172a/10b981?text=الأستاذ+مثنى+الأسدي+-+مدارس+إبداع+الأهلية"
+                                 alt="مدارس إبداع الأهلية - التعليم يصنع المستقبل - مدرس الكيمياء مثنى الأسدي" 
+                                 class="protected-img w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 cursor-pointer"
+                                 draggable="false"
+                                 onclick="openLightbox(this.src, 'مدارس إبداع الأهلية — التعليم يصنع المستقبل (مدرس الكيمياء مثنى الأسدي)')"
+                                 onerror="smartImageFallback(this)">
+                            <div class="absolute inset-0 bg-gradient-to-t from-[#060b16] via-[#060b16]/25 to-transparent pointer-events-none"></div>
+                            <button onclick="openLightbox(document.getElementById('poster1-img').src, 'مدارس إبداع الأهلية — التعليم يصنع المستقبل (مدرس الكيمياء مثنى الأسدي)')" class="absolute top-4 left-4 w-10 h-10 rounded-full bg-black/65 hover:bg-emerald-500 text-white flex items-center justify-center backdrop-blur-md transition-colors cursor-pointer" title="تكبير الصورة">
+                                <i class="fa-solid fa-expand"></i>
+                            </button>
+                            <div class="absolute bottom-4 right-5 left-5 pointer-events-none">
+                                <span class="px-3 py-1 rounded-lg bg-emerald-500/90 text-slate-950 font-extrabold text-xs">مدارس إبداع الأهلية</span>
+                                <h4 class="text-lg sm:text-xl font-black text-white mt-2">التعليم يصنع المستقبل — مدرس الكيمياء مثنى الأسدي</h4>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Poster 2: image_cdeb89.jpg / image_e26f66.jpg -->
+                    <div class="glass-card rounded-3xl overflow-hidden group border border-white/10 shadow-2xl">
+                        <div class="relative h-80 sm:h-[26rem] overflow-hidden bg-slate-900">
+                            <img id="poster2-img"
+                                 src="image_cdeb89.jpg" 
+                                 data-alt-src="image_e26f66.jpg"
+                                 data-fallback="https://placehold.co/800x600/0f172a/06b6d4?text=نخبة+الكادر+التدريسي+2026-2027"
+                                 alt="الكادر التدريسي في ثانوية إبداع الأهلية للعام الدراسي 2026-2027" 
+                                 class="protected-img w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 cursor-pointer"
+                                 draggable="false"
+                                 onclick="openLightbox(this.src, 'الكادر التدريسي في ثانوية إبداع الأهلية للعام الدراسي 2026 - 2027')"
+                                 onerror="smartImageFallback(this)">
+                            <div class="absolute inset-0 bg-gradient-to-t from-[#060b16] via-[#060b16]/25 to-transparent pointer-events-none"></div>
+                            <button onclick="openLightbox(document.getElementById('poster2-img').src, 'الكادر التدريسي في ثانوية إبداع الأهلية للعام الدراسي 2026 - 2027')" class="absolute top-4 left-4 w-10 h-10 rounded-full bg-black/65 hover:bg-amber-500 text-white flex items-center justify-center backdrop-blur-md transition-colors cursor-pointer" title="تكبير الصورة">
+                                <i class="fa-solid fa-expand"></i>
+                            </button>
+                            <div class="absolute bottom-4 right-5 left-5 pointer-events-none">
+                                <span class="px-3 py-1 rounded-lg bg-amber-500/90 text-slate-950 font-extrabold text-xs">ثانوية إبداع الأهلية للبنين (2026 - 2027)</span>
+                                <h4 class="text-lg sm:text-xl font-black text-white mt-2">نخبة أساتذة إعدادية الناصرية: الكيمياء مثنى الأسدي • الفيزياء علي كاظم • الرياضيات عباس محمد</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================================================
+             5. DISTINCTIVE HONOR ROLL / TOP ACHIEVERS (لائحة المتميزين)
+             ========================================================= -->
+        <section id="honor-roll" class="py-16 md:py-24 bg-gradient-to-b from-[#081021] via-[#060b16] to-[#081021] border-t border-white/10 relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <!-- Section Header -->
+                <div class="text-center max-w-3xl mx-auto mb-12 reveal">
+                    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-500/15 border border-amber-500/30 text-amber-400 text-xs sm:text-sm font-bold mb-3">
+                        <i class="fa-solid fa-crown"></i>
+                        <span>لوحة الشرف والتميز — إعدادية الناصرية للبنين (2024 / 2025)</span>
+                    </div>
+                    <h2 class="text-3xl sm:text-5xl font-black text-white mb-4">
+                        لائحة <span class="text-gradient-gold">الطلبة المتميزين</span>
+                    </h2>
+                    <p class="text-slate-300 text-sm sm:text-base">
+                        نفخر بكوكبة الأبطال المتفوقين الذين سطّروا أروع نتائج النجاح والامتياز بمعدلات استثنائية تتجاوز الـ 100%.
+                    </p>
+                </div>
+
+                <!-- TOP 3 PODIUM SHOWCASE (أوائل لوحة الشرف) -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-end mb-14 reveal">
+                    
+                    <!-- Rank 2 (Silver) -->
+                    <div onclick="openCertificate(2)" class="podium-silver rounded-3xl p-6 text-center order-2 md:order-1 relative transform hover:-translate-y-2 transition-all shadow-xl cursor-pointer">
+                        <div class="w-14 h-14 mx-auto rounded-2xl bg-slate-300/20 border border-slate-300/50 flex items-center justify-center text-slate-200 text-2xl font-black mb-3">
+                            <i class="fa-solid fa-medal text-slate-300"></i>
+                        </div>
+                        <span class="px-3 py-1 rounded-full bg-slate-300/20 text-slate-200 text-xs font-extrabold">المركز الثاني</span>
+                        <h3 class="text-xl font-black text-white mt-3 mb-1">علي أحمد داود وطبان</h3>
+                        <div class="text-3xl font-black text-slate-200 my-2" dir="ltr">100.43%</div>
+                        <span class="inline-block px-4 py-1 rounded-full bg-emerald-500/20 text-emerald-300 text-xs font-bold border border-emerald-500/30">
+                            التقدير: امتياز
+                        </span>
+                    </div>
+
+                    <!-- Rank 1 (Gold - Elevated Center) -->
+                    <div onclick="openCertificate(1)" class="podium-gold rounded-3xl p-8 text-center order-1 md:order-2 relative transform md:-translate-y-4 hover:-translate-y-6 transition-all shadow-2xl shadow-amber-500/15 cursor-pointer">
+                        <div class="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-gradient-to-r from-amber-400 to-amber-600 text-slate-950 font-black text-xs shadow-lg flex items-center gap-1.5">
+                            <i class="fa-solid fa-crown"></i>
+                            <span>الأول على الدفعة</span>
+                        </div>
+                        <div class="w-16 h-16 mx-auto rounded-2xl bg-amber-500/25 border border-amber-400 flex items-center justify-center text-amber-400 text-3xl mb-4 mt-2">
+                            <i class="fa-solid fa-trophy"></i>
+                        </div>
+                        <span class="px-3.5 py-1 rounded-full bg-amber-500/20 text-amber-300 text-xs font-extrabold">المركز الأول</span>
+                        <h3 class="text-2xl font-black text-white mt-3 mb-1">علي جميل هادي محمد</h3>
+                        <div class="text-4xl font-black text-gradient-gold my-2" dir="ltr">100.71%</div>
+                        <span class="inline-block px-4 py-1 rounded-full bg-emerald-500/25 text-emerald-300 text-xs font-extrabold border border-emerald-400/40">
+                            التقدير: امتياز
+                        </span>
+                    </div>
+
+                    <!-- Rank 3 (Bronze) -->
+                    <div onclick="openCertificate(3)" class="podium-bronze rounded-3xl p-6 text-center order-3 relative transform hover:-translate-y-2 transition-all shadow-xl cursor-pointer">
+                        <div class="w-14 h-14 mx-auto rounded-2xl bg-amber-700/25 border border-amber-600/50 flex items-center justify-center text-amber-500 text-2xl font-black mb-3">
+                            <i class="fa-solid fa-award"></i>
+                        </div>
+                        <span class="px-3 py-1 rounded-full bg-amber-700/30 text-amber-400 text-xs font-extrabold">المركز الثالث</span>
+                        <h3 class="text-xl font-black text-white mt-3 mb-1">سجاد جبار حسين مجبل</h3>
+                        <div class="text-3xl font-black text-amber-400 my-2" dir="ltr">99.43%</div>
+                        <span class="inline-block px-4 py-1 rounded-full bg-emerald-500/20 text-emerald-300 text-xs font-bold border border-emerald-500/30">
+                            التقدير: امتياز
+                        </span>
+                    </div>
+
+                </div>
+
+                <!-- INTERACTIVE SEARCH, FILTER & VIEW CONTROLS -->
+                <div class="glass-card rounded-3xl p-5 sm:p-6 mb-8 reveal">
+                    <div class="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-4">
+                        
+                        <!-- Search Input -->
+                        <div class="relative flex-1">
+                            <i class="fa-solid fa-magnifying-glass absolute right-4 top-1/2 -translate-y-1/2 text-slate-400"></i>
+                            <input type="text" id="student-search" 
+                                   placeholder="ابحث باسم الطالب أو رقم الترتيب (مثلاً: علي، جعفر، 15)..." 
+                                   class="w-full bg-[#060b16]/90 border border-white/15 focus:border-emerald-400 rounded-2xl py-3 pr-11 pl-4 text-sm text-white placeholder-slate-400 focus:outline-none transition-colors select-text">
+                        </div>
+
+                        <!-- Grade Filter Pills -->
+                        <div class="flex flex-wrap items-center gap-2">
+                            <button onclick="setFilter('all')" id="filter-all" class="filter-btn active px-3.5 py-2.5 rounded-xl text-xs sm:text-sm font-bold bg-emerald-500 text-slate-950 transition-all cursor-pointer">
+                                الكل (72)
+                            </button>
+                            <button onclick="setFilter('top10')" id="filter-top10" class="filter-btn px-3.5 py-2.5 rounded-xl text-xs sm:text-sm font-bold bg-white/5 text-slate-300 hover:bg-white/10 transition-all cursor-pointer">
+                                الأوائل Top 10
+                            </button>
+                            <button onclick="setFilter('excellent')" id="filter-excellent" class="filter-btn px-3.5 py-2.5 rounded-xl text-xs sm:text-sm font-bold bg-white/5 text-slate-300 hover:bg-white/10 transition-all cursor-pointer">
+                                امتياز (42)
+                            </button>
+                            <button onclick="setFilter('verygood')" id="filter-verygood" class="filter-btn px-3.5 py-2.5 rounded-xl text-xs sm:text-sm font-bold bg-white/5 text-slate-300 hover:bg-white/10 transition-all cursor-pointer">
+                                جيد جداً (30)
+                            </button>
+                        </div>
+
+                        <!-- View Mode Toggle (Cards vs Table vs Original Document) -->
+                        <div class="flex items-center gap-2 justify-end">
+                            <button onclick="setViewMode('cards')" id="view-cards-btn" class="p-2.5 px-3.5 rounded-xl bg-amber-500/20 text-amber-400 border border-amber-500/40 text-xs font-bold flex items-center gap-1.5 cursor-pointer" title="عرض البطاقات">
+                                <i class="fa-solid fa-grip"></i>
+                                <span class="hidden sm:inline">بطاقات</span>
+                            </button>
+                            <button onclick="setViewMode('table')" id="view-table-btn" class="p-2.5 px-3.5 rounded-xl bg-white/5 text-slate-300 border border-white/10 text-xs font-bold flex items-center gap-1.5 cursor-pointer" title="عرض الجدول">
+                                <i class="fa-solid fa-list-ol"></i>
+                                <span class="hidden sm:inline">جدول</span>
+                            </button>
+                            <button onclick="setViewMode('document')" id="view-doc-btn" class="px-3.5 py-2.5 rounded-xl bg-white/5 hover:bg-white/10 text-slate-200 border border-white/10 text-xs font-bold flex items-center gap-1.5 cursor-pointer" title="عرض وثيقة لوحة الشرف الأصلية">
+                                <i class="fa-solid fa-image text-emerald-400"></i>
+                                <span>الوثيقة الأصلية</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Results Counter -->
+                    <div class="mt-4 pt-3 border-t border-white/5 flex flex-wrap items-center justify-between gap-2 text-xs text-slate-400">
+                        <span id="results-count">يتم عرض جميع الطلبة المتميزين (72 طالب)</span>
+                        <span class="text-amber-400 font-semibold"><i class="fa-solid fa-award ml-1"></i> انقر على أي طالب لعرض شهادة التقدير الرقمية</span>
+                    </div>
+                </div>
+
+                <!-- HONOR ROLL CARDS GRID CONTAINER -->
+                <div id="students-cards-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+                    <!-- Populated dynamically via JavaScript -->
+                </div>
+
+                <!-- HONOR ROLL TABLE CONTAINER (Hidden by default) -->
+                <div id="students-table-container" class="hidden glass-card rounded-3xl overflow-hidden border border-white/10">
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-right border-collapse">
+                            <thead>
+                                <tr class="bg-white/5 border-b border-white/10 text-amber-400 text-xs sm:text-sm">
+                                    <th class="py-4 px-5 font-extrabold">الترتيب</th>
+                                    <th class="py-4 px-5 font-extrabold">اسم الطالب الكامل</th>
+                                    <th class="py-4 px-5 font-extrabold">التقدير</th>
+                                    <th class="py-4 px-5 font-extrabold">المعدل</th>
+                                    <th class="py-4 px-5 font-extrabold text-center">الشهادة</th>
+                                </tr>
+                            </thead>
+                            <tbody id="students-table-body" class="divide-y divide-white/5 text-sm">
+                                <!-- Populated dynamically via JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- ORIGINAL HONOR ROLL DOCUMENT CONTAINER (image_41cebd.jpg / image_8951f1.jpg) -->
+                <div id="students-document-container" class="hidden glass-card rounded-3xl p-4 sm:p-8 border border-amber-500/30 text-center">
+                    <div class="flex flex-wrap items-center justify-between gap-3 mb-5 pb-4 border-b border-white/10">
+                        <div class="text-right">
+                            <h3 class="text-lg sm:text-xl font-black text-white">لوحة الشرف والتميز الرسمية المعتمدة (2024 / 2025)</h3>
+                            <p class="text-xs sm:text-sm text-slate-400">إعدادية الناصرية للبنين — الوثيقة الكاملة للطلبة الـ 72</p>
+                        </div>
+                        <button onclick="openLightbox(document.getElementById('honor-doc-img').src, 'وثيقة لوحة الشرف الرسمية — إعدادية الناصرية للبنين 2024/2025')" class="px-4 py-2 rounded-xl bg-amber-500 text-slate-950 font-extrabold text-xs sm:text-sm flex items-center gap-2 cursor-pointer">
+                            <i class="fa-solid fa-magnifying-glass-plus"></i>
+                            <span>تكبير كامل للشاشة</span>
+                        </button>
+                    </div>
+                    <div class="max-w-3xl mx-auto rounded-2xl overflow-hidden border border-white/15 bg-slate-950 shadow-2xl">
+                        <img id="honor-doc-img"
+                             src="image_41cebd.jpg" 
+                             data-alt-src="image_8951f1.jpg"
+                             data-fallback="https://placehold.co/800x1000/0f172a/f59e0b?text=لوحة+الشرف+والتميز+2024-2025"
+                             alt="لوحة الشرف والتميز في إعدادية الناصرية للبنين 2024/2025" 
+                             class="protected-img w-full h-auto object-contain cursor-pointer"
+                             draggable="false"
+                             onclick="openLightbox(this.src, 'وثيقة لوحة الشرف الرسمية — إعدادية الناصرية للبنين 2024/2025')"
+                             onerror="smartImageFallback(this)">
+                    </div>
+                </div>
+
+                <!-- Empty Search State -->
+                <div id="no-results-box" class="hidden text-center py-14 glass-card rounded-3xl">
+                    <i class="fa-solid fa-user-slash text-4xl text-slate-500 mb-3"></i>
+                    <h4 class="text-lg font-bold text-white">لم يتم العثور على طالب بهذا الاسم</h4>
+                    <p class="text-slate-400 text-sm mt-1">حاول البحث بالاسم الأول أو رقم الترتيب</p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- =========================================================
+             6. OFFICIAL CONTACT & SOCIAL SECTION (READ-ONLY)
+             ========================================================= -->
+        <section id="contact" class="py-16 md:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="glass-card rounded-[2rem] p-8 sm:p-12 relative overflow-hidden border border-emerald-500/25 reveal">
+                <div class="absolute -top-24 -left-24 w-72 h-72 bg-emerald-500/15 rounded-full blur-3xl pointer-events-none"></div>
+                <div class="absolute -bottom-24 -right-24 w-72 h-72 bg-amber-500/15 rounded-full blur-3xl pointer-events-none"></div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center relative z-10">
+                    <div class="lg:col-span-6 text-center lg:text-right">
+                        <span class="px-3.5 py-1 rounded-full bg-emerald-500/15 text-emerald-400 text-xs font-bold border border-emerald-500/30">
+                            قنوات التواصل الرسمية للأستاذ
+                        </span>
+                        <h2 class="text-3xl sm:text-4xl font-black text-white mt-4 mb-4">
+                            ابدأ رحلة التفوق في <span class="text-gradient-chem">الكيمياء</span> الآن
+                        </h2>
+                        <p class="text-slate-300 text-sm sm:text-base leading-relaxed mb-6">
+                            للاستفسار عن مواعيد المحاضرات في <strong class="text-white">معهد وثانوية إبداع الأهلية</strong> أو <strong class="text-white">معهد النورين الأهلي</strong>، أو لمتابعة الملخصات والاختبارات اليومية، يسعدنا تواصلكم عبر الحساب الرسمي أو الاتصال المباشر.
+                        </p>
+
+                        <div class="inline-flex items-center gap-2 text-xs text-emerald-300 bg-emerald-500/10 px-4 py-2 rounded-xl border border-emerald-500/25">
+                            <i class="fa-solid fa-shield-check text-emerald-400"></i>
+                            <span>صفحة تعريفية رسمية معتمدة للأستاذ مثنى الأسدي</span>
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-5">
+                        <!-- Instagram Card -->
+                        <div class="p-6 rounded-3xl bg-gradient-to-br from-pink-600/20 via-purple-600/15 to-amber-500/15 border border-pink-500/30 hover:border-pink-400 transition-all hover:-translate-y-1.5 flex flex-col justify-between">
+                            <div>
+                                <div class="flex items-center justify-between mb-4">
+                                    <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-amber-500 via-pink-500 to-purple-600 flex items-center justify-center text-white text-2xl shadow-lg">
+                                        <i class="fa-brands fa-instagram"></i>
+                                    </div>
+                                    <button onclick="copyTextValue('_muthana93', 'تم نسخ يوزر الإنستغرام: @_muthana93')" class="px-3 py-1 rounded-lg bg-white/10 hover:bg-white/20 text-xs text-slate-200 font-bold transition-colors cursor-pointer" title="نسخ اليوزر">
+                                        <i class="fa-regular fa-copy ml-1"></i> نسخ اليوزر
+                                    </button>
+                                </div>
+                                <h3 class="text-lg font-extrabold text-white">الحساب الرسمي على إنستغرام</h3>
+                                <p class="text-pink-300 font-bold text-base mt-1 select-text" dir="ltr">@_muthana93</p>
+                            </div>
+                            <a href="https://instagram.com/_muthana93" target="_blank" rel="noopener noreferrer" class="mt-6 py-2.5 px-4 rounded-xl bg-gradient-to-r from-pink-600 to-purple-600 hover:opacity-95 text-white font-extrabold text-xs flex items-center justify-between transition-all">
+                                <span>فتح الحساب ومراسلة الأستاذ</span>
+                                <i class="fa-solid fa-arrow-up-left"></i>
+                            </a>
+                        </div>
+
+                        <!-- Phone / WhatsApp Card (Fixed Read-Only) -->
+                        <div class="p-6 rounded-3xl bg-gradient-to-br from-emerald-600/20 to-cyan-600/15 border border-emerald-500/30 hover:border-emerald-400 transition-all hover:-translate-y-1.5 flex flex-col justify-between">
+                            <div>
+                                <div class="flex items-center justify-between mb-4">
+                                    <div class="w-12 h-12 rounded-2xl bg-emerald-500 flex items-center justify-center text-slate-950 text-2xl shadow-lg">
+                                        <i class="fa-solid fa-phone"></i>
+                                    </div>
+                                    <button onclick="copyTextValue('0780 000 0000', 'تم نسخ رقم الهاتف: 0780 000 0000')" class="px-3 py-1 rounded-lg bg-white/10 hover:bg-white/20 text-xs text-slate-200 font-bold transition-colors cursor-pointer" title="نسخ الرقم">
+                                        <i class="fa-regular fa-copy ml-1"></i> نسخ الرقم
+                                    </button>
+                                </div>
+                                <h3 class="text-lg font-extrabold text-white">الهاتف والواتساب للتواصل</h3>
+                                <p class="text-emerald-300 font-black text-lg tracking-wider mt-1 select-text" dir="ltr">0780 000 0000</p>
+                            </div>
+
+                            <div class="mt-6 flex items-center gap-2">
+                                <a href="tel:07800000000" class="flex-1 py-2.5 px-3 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-extrabold text-xs text-center transition-colors">
+                                    <i class="fa-solid fa-phone-flip ml-1"></i> اتصال مباشر
+                                </a>
+                                <a href="https://wa.me/9647800000000" target="_blank" rel="noopener noreferrer" class="flex-1 py-2.5 px-3 rounded-xl bg-green-600 hover:bg-green-500 text-white font-extrabold text-xs text-center transition-colors">
+                                    <i class="fa-brands fa-whatsapp ml-1"></i> واتساب
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- =========================================================
+         FOOTER
+         ========================================================= -->
+    <footer class="border-t border-white/10 bg-[#040811] py-8 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-right">
+            <div class="flex items-center gap-3">
+                <i class="fa-solid fa-flask text-emerald-400 text-xl"></i>
+                <div>
+                    <p class="text-white font-bold text-sm">الأستاذ مثنى الأسدي — مدرس مادة الكيمياء</p>
+                    <p class="text-slate-500 text-xs">إعدادية الناصرية للبنين • معهد وثانوية إبداع الأهلية • معهد النورين الأهلي</p>
+                </div>
+            </div>
+            <div class="text-xs text-slate-400">
+                جميع الحقوق محفوظة © 2026 | <a href="https://instagram.com/_muthana93" target="_blank" rel="noopener noreferrer" class="text-amber-400 hover:underline" dir="ltr">@_muthana93</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- =========================================================
+         CUSTOM TOAST NOTIFICATION (Replaces alert)
+         ========================================================= -->
+    <div id="toast-msg" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 px-5 py-3 rounded-2xl bg-emerald-500 text-slate-950 font-extrabold text-sm shadow-2xl transition-all duration-300 opacity-0 translate-y-6 pointer-events-none flex items-center gap-2">
+        <i class="fa-solid fa-circle-check"></i>
+        <span id="toast-text">تم النسخ بنجاح</span>
+    </div>
+
+    <!-- =========================================================
+         LIGHTBOX MODAL FOR FULLSCREEN VIEWING OF IMAGES
+         ========================================================= -->
+    <div id="lightbox-modal" onclick="closeLightbox()" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-md hidden items-center justify-center p-4">
+        <div class="relative max-w-4xl w-full bg-[#0d1627] rounded-3xl overflow-hidden border border-white/15 shadow-2xl" onclick="event.stopPropagation()">
+            <div class="flex items-center justify-between px-6 py-4 border-b border-white/10">
+                <h4 id="lightbox-caption" class="text-white font-bold text-sm sm:text-base"></h4>
+                <button onclick="closeLightbox()" class="w-9 h-9 rounded-full bg-white/10 hover:bg-red-500 text-white flex items-center justify-center transition-colors cursor-pointer">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <div class="p-4 flex justify-center bg-slate-950 max-h-[80vh] overflow-auto">
+                <img id="lightbox-img" src="" alt="عرض الصورة" class="protected-img max-h-[72vh] w-auto rounded-xl object-contain" draggable="false">
+            </div>
+        </div>
+    </div>
+
+    <!-- =========================================================
+         DIGITAL CERTIFICATE MODAL FOR HONOR STUDENTS
+         ========================================================= -->
+    <div id="certificate-modal" onclick="closeCertificate()" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md hidden items-center justify-center p-4">
+        <div class="relative max-w-xl w-full rounded-3xl p-1.5 bg-gradient-to-br from-amber-400 via-emerald-500 to-cyan-500 shadow-2xl" onclick="event.stopPropagation()">
+            <div class="bg-[#081021] rounded-[22px] p-6 sm:p-8 text-center relative overflow-hidden">
+                <button onclick="closeCertificate()" class="absolute top-4 left-4 w-9 h-9 rounded-full bg-white/10 hover:bg-red-500 text-white flex items-center justify-center transition-colors cursor-pointer">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+
+                <div class="w-16 h-16 mx-auto rounded-2xl bg-amber-500/15 border border-amber-400/50 flex items-center justify-center text-amber-400 text-3xl mb-4">
+                    <i class="fa-solid fa-award"></i>
+                </div>
+
+                <span class="px-3.5 py-1 rounded-full bg-emerald-500/15 text-emerald-400 text-xs font-extrabold border border-emerald-500/30">
+                    إعدادية الناصرية للبنين • لوحة الشرف 2024 / 2025
+                </span>
+
+                <h3 class="font-amiri text-2xl sm:text-3xl text-amber-400 mt-4 mb-2">شهادة شكر وتقدير وتميّز</h3>
+                <p class="text-slate-400 text-xs sm:text-sm mb-5">يتقدم الأستاذ مثنى الأسدي بأحر التهاني والتبريكات للطالب المتفوق</p>
+
+                <div class="py-4 px-5 rounded-2xl bg-white/5 border border-white/10 mb-5">
+                    <h4 id="cert-student-name" class="text-xl sm:text-2xl font-black text-white mb-2"></h4>
+                    <div class="flex flex-wrap items-center justify-center gap-3 sm:gap-4 text-sm font-bold">
+                        <span class="text-amber-400">الترتيب: <strong id="cert-student-rank"></strong></span>
+                        <span class="text-slate-600">|</span>
+                        <span class="text-emerald-400">المعدل: <strong id="cert-student-score" dir="ltr"></strong></span>
+                        <span class="text-slate-600">|</span>
+                        <span class="text-cyan-400">التقدير: <strong id="cert-student-grade"></strong></span>
+                    </div>
+                </div>
+
+                <div class="flex items-center justify-between pt-3 border-t border-white/10 text-xs">
+                    <div class="text-right">
+                        <span class="block text-slate-400">مدرس المادة</span>
+                        <span class="font-extrabold text-amber-400 text-sm">الأستاذ مثنى الأسدي</span>
+                    </div>
+                    <div class="text-left">
+                        <span class="block text-slate-400">مادة التخصص</span>
+                        <span class="font-extrabold text-emerald-400 text-sm">الكيمياء — السادس الإعدادي</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- =========================================================
+         JAVASCRIPT LOGIC
+         ========================================================= -->
+    <script>
+        // ---------------------------------------------------------
+        // 0. SMART IMAGE FALLBACK & IMAGE PROTECTION (READ-ONLY)
+        // ---------------------------------------------------------
+        function smartImageFallback(imgEl) {
+            const altSrc = imgEl.getAttribute('data-alt-src');
+            if (altSrc && !imgEl.dataset.triedAlt) {
+                imgEl.dataset.triedAlt = 'true';
+                imgEl.src = altSrc;
+                return;
+            }
+            imgEl.onerror = null;
+            const fallbackUrl = imgEl.getAttribute('data-fallback');
+            if (fallbackUrl) {
+                imgEl.src = fallbackUrl;
+            }
+        }
+
+        // Prevent right-click context menu and dragging on all images
+        document.addEventListener('contextmenu', function(e) {
+            if (e.target.tagName === 'IMG') {
+                e.preventDefault();
+            }
+        });
+
+        document.addEventListener('dragstart', function(e) {
+            if (e.target.tagName === 'IMG') {
+                e.preventDefault();
+            }
+        });
+
+        // ---------------------------------------------------------
+        // 1. ANIMATED INTRO TYPEWRITER LOGIC
+        // ---------------------------------------------------------
+        const fullIntroText = "الأستاذ مثنى الأسدي";
+        const typedElement = document.getElementById("intro-typed-name");
+        const subtitleElement = document.getElementById("intro-subtitle");
+        const progressElement = document.getElementById("intro-progress");
+        const introScreen = document.getElementById("intro-screen");
+        let charIndex = 0;
+        let introDismissed = false;
+
+        function runIntroAnimation() {
+            const typeInterval = setInterval(() => {
+                if (charIndex < fullIntroText.length) {
+                    typedElement.textContent += fullIntroText.charAt(charIndex);
+                    charIndex++;
+                    const percent = Math.round((charIndex / fullIntroText.length) * 100);
+                    progressElement.style.width = percent + "%";
+                } else {
+                    clearInterval(typeInterval);
+                    subtitleElement.classList.remove("opacity-0", "translate-y-3");
+                    setTimeout(() => {
+                        dismissIntro();
+                    }, 1650);
+                }
+            }, 110);
+        }
+
+        function dismissIntro() {
+            if (introDismissed) return;
+            introDismissed = true;
+            introScreen.classList.add("fade-out");
+            setTimeout(() => {
+                introScreen.style.display = "none";
+            }, 950);
+        }
+
+        window.addEventListener("load", () => {
+            runIntroAnimation();
+            initChemCanvas();
+            renderStudents();
+            revealOnScroll();
+        });
+
+        // ---------------------------------------------------------
+        // 2. MOBILE NAVIGATION TOGGLE
+        // ---------------------------------------------------------
+        const mobileMenuBtn = document.getElementById("mobile-menu-btn");
+        const mobileMenu = document.getElementById("mobile-menu");
+
+        mobileMenuBtn.addEventListener("click", () => {
+            mobileMenu.classList.toggle("hidden");
+        });
+
+        mobileMenu.querySelectorAll("a").forEach(link => {
+            link.addEventListener("click", () => {
+                mobileMenu.classList.add("hidden");
+            });
+        });
+
+        // ---------------------------------------------------------
+        // 3. EXACT 72 HONOR STUDENTS FROM OFFICIAL DOCUMENT
+        // ---------------------------------------------------------
+        const honorStudents = [
+            { rank: 1, name: "علي جميل هادي محمد", grade: "امتياز", score: 100.71 },
+            { rank: 2, name: "علي أحمد داود وطبان", grade: "امتياز", score: 100.43 },
+            { rank: 3, name: "سجاد جبار حسين مجبل", grade: "امتياز", score: 99.43 },
+            { rank: 4, name: "جعفر عباس دخيل مطر", grade: "امتياز", score: 99.29 },
+            { rank: 5, name: "يوسف حكيم رمضان يوسف", grade: "امتياز", score: 99 },
+            { rank: 6, name: "منتظر محمد عبد الشهيد صالح", grade: "امتياز", score: 98.71 },
+            { rank: 7, name: "جعفر صادق كاظم ايدام", grade: "امتياز", score: 98.43 },
+            { rank: 8, name: "عبدالله يسار تركي كطامي", grade: "امتياز", score: 98.43 },
+            { rank: 9, name: "احمد قيس حميد مصطفى", grade: "امتياز", score: 98.29 },
+            { rank: 10, name: "حسين سلوان مناف ملبس", grade: "امتياز", score: 98.29 },
+            { rank: 11, name: "مهدي حبيب حسن عطر", grade: "امتياز", score: 98.14 },
+            { rank: 12, name: "احمد مرتضى غانم شبيب", grade: "امتياز", score: 98 },
+            { rank: 13, name: "علي احمد محمد علي جاسم", grade: "امتياز", score: 97.57 },
+            { rank: 14, name: "علي مهند شيال لفته", grade: "امتياز", score: 97.29 },
+            { rank: 15, name: "مؤمل نعمه جرد حسن", grade: "امتياز", score: 97.14 },
+            { rank: 16, name: "سجاد محمد كاظم حسين", grade: "امتياز", score: 96.86 },
+            { rank: 17, name: "علي فاضل خضير ثجيل", grade: "امتياز", score: 96.71 },
+            { rank: 18, name: "أحمد ايثار نصير دواره", grade: "امتياز", score: 96.71 },
+            { rank: 19, name: "احمد غسان داخل بندر", grade: "امتياز", score: 96.14 },
+            { rank: 20, name: "حسن صالح يونس علي", grade: "امتياز", score: 96.14 },
+            { rank: 21, name: "عبد الله حيدر أبراهيم احمد", grade: "امتياز", score: 96 },
+            { rank: 22, name: "علي خميس شيوط خليف", grade: "امتياز", score: 95.43 },
+            { rank: 23, name: "كرار علي حبيب جعيول", grade: "امتياز", score: 95 },
+            { rank: 24, name: "جعفر محمد طارق عبد", grade: "امتياز", score: 94.29 },
+            { rank: 25, name: "محمد ليث عبدالله خضير", grade: "امتياز", score: 93.86 },
+            { rank: 26, name: "علي محمد علي جعفر", grade: "امتياز", score: 93.57 },
+            { rank: 27, name: "علي ماجد خضر عيفان", grade: "امتياز", score: 93.29 },
+            { rank: 28, name: "علي حسن طارش عداي", grade: "امتياز", score: 93.14 },
+            { rank: 29, name: "احمد محمد عمران مناتي", grade: "امتياز", score: 92.86 },
+            { rank: 30, name: "على الهادي أسامه جاسم محمد", grade: "امتياز", score: 92.57 },
+            { rank: 31, name: "حسين علي عبدالحسين سوادي", grade: "امتياز", score: 92.43 },
+            { rank: 32, name: "حسين أنور خلف هاشم", grade: "امتياز", score: 92 },
+            { rank: 33, name: "حسن علي خضر حميد", grade: "امتياز", score: 91.29 },
+            { rank: 34, name: "علي مزهر خلف خضير", grade: "امتياز", score: 91.29 },
+            { rank: 35, name: "صادق حميد قشاع شريده", grade: "امتياز", score: 91.14 },
+            { rank: 36, name: "حسين حازم عبد الستار مزهر", grade: "امتياز", score: 91 },
+            { rank: 37, name: "هاشم حمزه هاشم ناصر", grade: "امتياز", score: 90.29 },
+            { rank: 38, name: "حسين حنون لهمود نوار", grade: "امتياز", score: 90.29 },
+            { rank: 39, name: "رضا سعدي طالب حسين", grade: "امتياز", score: 90.14 },
+            { rank: 40, name: "أحمد حسين خضير دحام", grade: "امتياز", score: 90 },
+            { rank: 41, name: "علي منال مهدي عبد الحسن", grade: "امتياز", score: 90 },
+            { rank: 42, name: "على الهادي نعيم خضير شناوه", grade: "امتياز", score: 90 },
+            { rank: 43, name: "احمد عماد جواد خضير", grade: "جيد جداً", score: 89.86 },
+            { rank: 44, name: "علي سجاد حميد شبرم", grade: "جيد جداً", score: 89.57 },
+            { rank: 45, name: "حسن زهير ريسان دوحي", grade: "جيد جداً", score: 89.43 },
+            { rank: 46, name: "حسين أسعد راضي عباس", grade: "جيد جداً", score: 88.71 },
+            { rank: 47, name: "إبراهيم جعفر مكي عبد الزهرة", grade: "جيد جداً", score: 88 },
+            { rank: 48, name: "مرشد سرحان ريكان برغش", grade: "جيد جداً", score: 87.86 },
+            { rank: 49, name: "مصطفى عبد الأمير غني رضا", grade: "جيد جداً", score: 87.71 },
+            { rank: 50, name: "سجاد جابر حواس باهن", grade: "جيد جداً", score: 87.57 },
+            { rank: 51, name: "سجاد سالم حسين حميدي", grade: "جيد جداً", score: 87.14 },
+            { rank: 52, name: "حسن رياح محسن عطشان", grade: "جيد جداً", score: 86.86 },
+            { rank: 53, name: "حسين مزهر خلف خضير", grade: "جيد جداً", score: 86.57 },
+            { rank: 54, name: "عباس حسين عبود رضا", grade: "جيد جداً", score: 86.43 },
+            { rank: 55, name: "محمد أحمد عجيل مفضي", grade: "جيد جداً", score: 86.43 },
+            { rank: 56, name: "محمد عمار علي حسين", grade: "جيد جداً", score: 86 },
+            { rank: 57, name: "محمد حسين جاسم محمد", grade: "جيد جداً", score: 85.57 },
+            { rank: 58, name: "رضا جياد رشك عطيه", grade: "جيد جداً", score: 85.29 },
+            { rank: 59, name: "أحمد هاني مهدي عبد الحسن", grade: "جيد جداً", score: 84.57 },
+            { rank: 60, name: "علي عدي بجاي شبيب", grade: "جيد جداً", score: 84.57 },
+            { rank: 61, name: "علي حسين كاظم بهلول", grade: "جيد جداً", score: 84.43 },
+            { rank: 62, name: "علي داخل حسين علي", grade: "جيد جداً", score: 83.86 },
+            { rank: 63, name: "مصطفى خالد كاظم عكاب", grade: "جيد جداً", score: 83.14 },
+            { rank: 64, name: "رضوان قحطان عدنان ثلجي", grade: "جيد جداً", score: 82.43 },
+            { rank: 65, name: "منتظر صباح ناهي ناصر", grade: "جيد جداً", score: 81.86 },
+            { rank: 66, name: "علي حسن عكله ثجيل", grade: "جيد جداً", score: 81.43 },
+            { rank: 67, name: "سجاد عبد الكريم عبد الصاحب", grade: "جيد جداً", score: 80.86 },
+            { rank: 68, name: "علي مازن قاسم جايد", grade: "جيد جداً", score: 80.86 },
+            { rank: 69, name: "محمد حامد ريسان أسود", grade: "جيد جداً", score: 80.86 },
+            { rank: 70, name: "جعفر ماجد ريسان جلاب", grade: "جيد جداً", score: 80.43 },
+            { rank: 71, name: "حسين احمد عبد عسواد", grade: "جيد جداً", score: 80.14 },
+            { rank: 72, name: "مرتضى صالح هادي لصوص", grade: "جيد جداً", score: 80 }
+        ];
+
+        let currentFilter = 'all';
+        let currentSearch = '';
+        let currentView = 'cards';
+
+        function setFilter(filter) {
+            currentFilter = filter;
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.remove('bg-emerald-500', 'text-slate-950');
+                btn.classList.add('bg-white/5', 'text-slate-300');
+            });
+            const activeBtn = document.getElementById(`filter-${filter}`);
+            activeBtn.classList.remove('bg-white/5', 'text-slate-300');
+            activeBtn.classList.add('bg-emerald-500', 'text-slate-950');
+            renderStudents();
+        }
+
+        function setViewMode(mode) {
+            currentView = mode;
+            const cardsContainer = document.getElementById('students-cards-container');
+            const tableContainer = document.getElementById('students-table-container');
+            const docContainer = document.getElementById('students-document-container');
+            const noResultsBox = document.getElementById('no-results-box');
+            const cardsBtn = document.getElementById('view-cards-btn');
+            const tableBtn = document.getElementById('view-table-btn');
+            const docBtn = document.getElementById('view-doc-btn');
+
+            const activeStyle = "p-2.5 px-3.5 rounded-xl bg-amber-500/20 text-amber-400 border border-amber-500/40 text-xs font-bold flex items-center gap-1.5 cursor-pointer";
+            const inactiveStyle = "p-2.5 px-3.5 rounded-xl bg-white/5 hover:bg-white/10 text-slate-300 border border-white/10 text-xs font-bold flex items-center gap-1.5 cursor-pointer";
+
+            cardsContainer.classList.add('hidden');
+            tableContainer.classList.add('hidden');
+            docContainer.classList.add('hidden');
+            cardsBtn.className = inactiveStyle;
+            tableBtn.className = inactiveStyle;
+            docBtn.className = inactiveStyle;
+
+            if (mode === 'cards') {
+                cardsContainer.classList.remove('hidden');
+                cardsBtn.className = activeStyle;
+                renderStudents();
+            } else if (mode === 'table') {
+                tableContainer.classList.remove('hidden');
+                tableBtn.className = activeStyle;
+                renderStudents();
+            } else if (mode === 'document') {
+                noResultsBox.classList.add('hidden');
+                docContainer.classList.remove('hidden');
+                docBtn.className = activeStyle;
+            }
+        }
+
+        document.getElementById('student-search').addEventListener('input', (e) => {
+            currentSearch = e.target.value.trim();
+            if (currentView === 'document') setViewMode('cards');
+            else renderStudents();
+        });
+
+        function renderStudents() {
+            const cardsContainer = document.getElementById('students-cards-container');
+            const tableBody = document.getElementById('students-table-body');
+            const noResultsBox = document.getElementById('no-results-box');
+            const resultsCount = document.getElementById('results-count');
+
+            const filtered = honorStudents.filter(st => {
+                const matchesFilter =
+                    currentFilter === 'all' ||
+                    (currentFilter === 'top10' && st.rank <= 10) ||
+                    (currentFilter === 'excellent' && st.grade === 'امتياز') ||
+                    (currentFilter === 'verygood' && st.grade === 'جيد جداً');
+
+                const matchesSearch =
+                    currentSearch === '' ||
+                    st.name.includes(currentSearch) ||
+                    st.rank.toString() === currentSearch;
+
+                return matchesFilter && matchesSearch;
+            });
+
+            resultsCount.textContent = `يتم عرض (${filtered.length}) من أصل 72 طالب متميز`;
+
+            if (filtered.length === 0) {
+                cardsContainer.innerHTML = '';
+                tableBody.innerHTML = '';
+                if (currentView !== 'document') noResultsBox.classList.remove('hidden');
+                return;
+            } else {
+                noResultsBox.classList.add('hidden');
+            }
+
+            // Generate Cards HTML
+            cardsContainer.innerHTML = filtered.map(st => {
+                const isTop10 = st.rank <= 10;
+                const isExcellent = st.grade === 'امتياز';
+                const badgeColor = isExcellent
+                    ? 'bg-emerald-500/15 text-emerald-400 border-emerald-500/30'
+                    : 'bg-cyan-500/15 text-cyan-400 border-cyan-500/30';
+                const rankBg = st.rank === 1
+                    ? 'bg-amber-400 text-slate-950'
+                    : st.rank === 2
+                    ? 'bg-slate-300 text-slate-950'
+                    : st.rank === 3
+                    ? 'bg-amber-600 text-white'
+                    : isTop10
+                    ? 'bg-amber-500/20 text-amber-400 border border-amber-500/40'
+                    : 'bg-white/10 text-slate-200';
+                const barWidth = Math.min(100, st.score);
+
+                return `
+                    <div onclick="openCertificate(${st.rank})" class="glass-card rounded-2xl p-5 flex flex-col justify-between transition-all hover:-translate-y-1 cursor-pointer group ${isTop10 ? 'border-amber-500/25' : ''}">
+                        <div>
+                            <div class="flex items-center justify-between gap-2 mb-3">
+                                <span class="w-9 h-9 rounded-xl ${rankBg} flex items-center justify-center font-black text-sm shadow">
+                                    #${st.rank}
+                                </span>
+                                <span class="px-3 py-1 rounded-full text-xs font-extrabold border ${badgeColor}">
+                                    ${st.grade}
+                                </span>
+                            </div>
+                            <h4 class="text-base font-extrabold text-white group-hover:text-amber-300 transition-colors leading-snug mb-3">
+                                ${st.name}
+                            </h4>
+                        </div>
+                        <div>
+                            <div class="flex items-center justify-between text-xs mb-1.5">
+                                <span class="text-slate-400 font-semibold">المعدل النهائي</span>
+                                <span class="font-black text-base ${isExcellent ? 'text-amber-400' : 'text-cyan-400'}" dir="ltr">${st.score}%</span>
+                            </div>
+                            <div class="w-full h-1.5 bg-slate-800 rounded-full overflow-hidden">
+                                <div class="h-full rounded-full ${isExcellent ? 'bg-gradient-to-l from-amber-400 to-emerald-400' : 'bg-cyan-400'}" style="width: ${barWidth}%"></div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+
+            // Generate Table Rows HTML
+            tableBody.innerHTML = filtered.map(st => {
+                const isExcellent = st.grade === 'امتياز';
+                return `
+                    <tr onclick="openCertificate(${st.rank})" class="hover:bg-white/5 transition-colors cursor-pointer">
+                        <td class="py-3.5 px-5 font-black text-amber-400">#${st.rank}</td>
+                        <td class="py-3.5 px-5 font-bold text-white">${st.name}</td>
+                        <td class="py-3.5 px-5">
+                            <span class="px-3 py-1 rounded-full text-xs font-bold ${isExcellent ? 'bg-emerald-500/15 text-emerald-400' : 'bg-cyan-500/15 text-cyan-400'}">
+                                ${st.grade}
+                            </span>
+                        </td>
+                        <td class="py-3.5 px-5 font-black ${isExcellent ? 'text-amber-400' : 'text-cyan-400'}" dir="ltr">${st.score}%</td>
+                        <td class="py-3.5 px-5 text-center">
+                            <span class="px-2.5 py-1 rounded-lg bg-amber-500/15 text-amber-400 text-xs font-bold">
+                                <i class="fa-solid fa-award ml-1"></i> عرض
+                            </span>
+                        </td>
+                    </tr>
+                `;
+            }).join('');
+        }
+
+        function openCertificate(rank) {
+            const st = honorStudents.find(s => s.rank === rank);
+            if (!st) return;
+            document.getElementById('cert-student-name').textContent = st.name;
+            document.getElementById('cert-student-rank').textContent = `#${st.rank}`;
+            document.getElementById('cert-student-score').textContent = `${st.score}%`;
+            document.getElementById('cert-student-grade').textContent = st.grade;
+            const modal = document.getElementById('certificate-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeCertificate() {
+            const modal = document.getElementById('certificate-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        // ---------------------------------------------------------
+        // 4. COPY UTILITY & TOAST NOTIFICATION
+        // ---------------------------------------------------------
+        function copyTextValue(textToCopy, successMessage) {
+            const tempInput = document.createElement("input");
+            tempInput.value = textToCopy;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand("copy");
+            document.body.removeChild(tempInput);
+            showToast(successMessage);
+        }
+
+        function showToast(message) {
+            const toast = document.getElementById('toast-msg');
+            const toastText = document.getElementById('toast-text');
+            toastText.textContent = message;
+            toast.classList.remove('opacity-0', 'translate-y-6');
+            setTimeout(() => {
+                toast.classList.add('opacity-0', 'translate-y-6');
+            }, 2800);
+        }
+
+        // ---------------------------------------------------------
+        // 5. LIGHTBOX FOR POSTERS & HONOR ROLL DOCUMENT
+        // ---------------------------------------------------------
+        function openLightbox(src, caption) {
+            const modal = document.getElementById('lightbox-modal');
+            const img = document.getElementById('lightbox-img');
+            const cap = document.getElementById('lightbox-caption');
+            img.src = src;
+            cap.textContent = caption;
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeLightbox() {
+            const modal = document.getElementById('lightbox-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        // ---------------------------------------------------------
+        // 6. SCROLL REVEAL ANIMATION
+        // ---------------------------------------------------------
+        function revealOnScroll() {
+            const reveals = document.querySelectorAll('.reveal');
+            const windowHeight = window.innerHeight;
+            reveals.forEach(el => {
+                const elementTop = el.getBoundingClientRect().top;
+                if (elementTop < windowHeight - 70) {
+                    el.classList.add('active');
+                }
+            });
+        }
+        window.addEventListener('scroll', revealOnScroll);
+
+        // ---------------------------------------------------------
+        // 7. AMBIENT CHEMISTRY FORMULAS & PARTICLES CANVAS
+        // ---------------------------------------------------------
+        function initChemCanvas() {
+            const canvas = document.getElementById('chem-canvas');
+            const ctx = canvas.getContext('2d');
+            let width, height;
+            const formulas = ['H₂O', 'C₆H₆', 'CO₂', 'H₂SO₄', 'NaOH', 'CH₄', 'NH₃', 'pH=7', 'ΔH', 'O₂'];
+            let particles = [];
+
+            function resize() {
+                width = canvas.width = window.innerWidth;
+                height = canvas.height = window.innerHeight;
+            }
+            window.addEventListener('resize', resize);
+            resize();
+
+            const count = Math.min(24, Math.floor(width / 60));
+            for (let i = 0; i < count; i++) {
+                particles.push({
+                    x: Math.random() * width,
+                    y: Math.random() * height,
+                    vx: (Math.random() - 0.5) * 0.4,
+                    vy: -0.2 - Math.random() * 0.4,
+                    text: formulas[i % formulas.length],
+                    size: 12 + Math.random() * 6,
+                    alpha: 0.15 + Math.random() * 0.25,
+                    color: i % 2 === 0 ? '#10b981' : '#f59e0b'
+                });
+            }
+
+            function animate() {
+                ctx.clearRect(0, 0, width, height);
+                particles.forEach(p => {
+                    p.x += p.vx;
+                    p.y += p.vy;
+
+                    if (p.y < -30) {
+                        p.y = height + 30;
+                        p.x = Math.random() * width;
+                    }
+                    if (p.x < -40) p.x = width + 40;
+                    if (p.x > width + 40) p.x = -40;
+
+                    ctx.save();
+                    ctx.globalAlpha = p.alpha;
+                    ctx.fillStyle = p.color;
+                    ctx.font = `bold ${p.size}px Cairo, sans-serif`;
+                    ctx.fillText(p.text, p.x, p.y);
+                    ctx.restore();
+                });
+                requestAnimationFrame(animate);
+            }
+            animate();
+        }
+    </script>
+</body>
+</html>
